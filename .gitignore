@@ -9,7 +9,7 @@ yarn-error.log
 *.sublime-project
 *.sublime-workspace
 
-# Logs
+# Logs  
 logs/
 *.log
 
