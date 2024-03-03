@@ -18,13 +18,24 @@ async function nearbySearch(keyword, radius, apiKey) {
         // Process the results
         const places = data.results;
         // console.log('Nearby Places:', places);
+
+        const placeDictionary = {};
         
         places.forEach(function(place){
           var nameValue = place.name;
           var rating = place.rating;
           var placeid = place.place_id;
           console.log('Name: ', nameValue, ' | Rating: ', rating, ' | Place ID: ', placeid);
+
+          placeDictionary[placeid] = {
+            name: nameValue,
+            rating: rating,
+            placeid: placeid
+        };
+
         });
+
+        console.log(placeDictionary)
 
       } else {
         console.error('Error:', data.status);
