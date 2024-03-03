@@ -1,9 +1,9 @@
 const axios = require('axios')
 
 async function fetchPlacesData(req,res){
-    const {query, radius, minRating, type, openNow, notAddPreviouslyVisited} = req.query;
-    const apiKey = AIzaSyB0_KJTIBmNOPO-eczEsaKcelygNtti9Kc;
-    const apiUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&key=${apiKey}`;
+    const {query, radius, minRating, type, openNow/*, notAddPreviouslyVisited*/} = req.query;
+    const apiKey = 'AIzaSyB0_KJTIBmNOPO-eczEsaKcelygNtti9Kc';
+    var apiUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&key=${apiKey}`;
 
     if (radius) {
         apiUrl += `&radius=${radius}`;
@@ -17,9 +17,9 @@ async function fetchPlacesData(req,res){
     if (openNow) {
         apiUrl += `&openNow${openNow}`;
     }
-    if (notAddPreviouslyVisited) {
+    /*if (notAddPreviouslyVisited) {
         apiUrl += `&notAddPreviouslyVisited=${notAddPreviouslyVisited}`;
-    }
+    }*/
 
     try{
         const response = await axios.get(apiUrl);
